@@ -8,17 +8,17 @@ class Main extends React.Component {
         movies: [],
     };
 
-    componentDidMount() {
-        fetch('http://www.omdbapi.com/?apikey=78584b3c&s=matrix')
-            .then((response) => response.json())
-            .then((data) => this.setState({ movies: data.Search }));
-    }
-
     searchMovies = (str) => {
         fetch(`http://www.omdbapi.com/?apikey=78584b3c&s=${str}`)
             .then((response) => response.json())
             .then((data) => this.setState({ movies: data.Search }));
     };
+
+    componentDidMount() {
+        fetch('http://www.omdbapi.com/?apikey=78584b3c&s=matrix')
+            .then((response) => response.json())
+            .then((data) => this.setState({ movies: data.Search }));
+    }
 
     render() {
         const { movies } = this.state;
